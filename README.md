@@ -6,7 +6,7 @@ Les droits sur les images ne vous appartiennent pas.
 
 Pour utiliser le script powershell vous devez :
   - lancer un cmd en administrateur
-  - Vus déplacer à l'emplacement du script
+  - Vous déplacer à l'emplacement du script
   - Executer la commande "powershell.exe"
   - Executer la commande ".\EP_Script.ps1 help" pour obtenir l'aide
   ou bien 
