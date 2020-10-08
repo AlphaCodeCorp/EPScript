@@ -13,6 +13,8 @@ Pour utiliser le script powershell vous devez :
   -   - Executer la commande ".\EP_Script.ps1 X" où X est le nombre d'image à récupérer.
   (A noter que le nombre maximum d'image récupérable est 100"
   
+  Le script enregistre les photos dans un dossier sur votre bureau au nom de "imagesEarthPornReddit"
+  Si vous avez déjà un dossier avec ce nom, il va ecraser les précédentes images
   
   Il s'agit là de la première version du script.
   Je vais faire une autre version de ce script, surement en java ou python
