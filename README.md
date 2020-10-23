@@ -1,24 +1,43 @@
 # EPScript
 
-Script pour récupérer des images sur le subreddit https://www.reddit.com/r/EarthPorn
+Script to grab images from subreddit like <https://www.reddit.com/r/EarthPorn>
 
-Les droits sur les images ne vous appartiennent pas.
+The rights to the images do not belong to you and are the property of the rightful owners.
 
-Pour utiliser le script powershell vous devez :
-  - lancer un cmd en administrateur
-  - Vous déplacer à l'emplacement du script
-  - Executer la commande "powershell.exe"
-  - Executer la commande ".\EP_Script.ps1 help" pour obtenir l'aide
-  ou bien 
-  -   - Executer la commande ".\EP_Script.ps1 X" où X est le nombre d'image à récupérer.
-  (A noter que le nombre maximum d'image récupérable est 100"
-  
-  Le script enregistre les photos dans un dossier sur votre bureau au nom de "imagesEarthPornReddit"
-  Si vous avez déjà un dossier avec ce nom, il va ecraser les précédentes images
-  
-  Il s'agit là de la première version du script.
-  Je vais faire une autre version de ce script, surement en java ou python
-  
-  Vous pouvez modifier le script pour qu'il récupérer plus que 100 images.
-Pour ce faire vous devez aller sur le lien "https://www.reddit.com/r/EarthPorn.json?after=YYYY&limit=100"
-où YYYY est le lien pour la page de résultat suivante.
+## Script PowerShell
+
+PS : This script grab images from subreddit EarthPorn only, change this link in the script to change of subreddit
+
+PS bis : This script is the first version, I advise to use the one in python
+
+To allow script to be executed follow this [documentation](<https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7>)
+
+- Launch cmd in administrator
+- Go to the location of the script
+- Execute ```powershell.exe```
+
+Now you can use the script
+
+- Execute the commande ```.\EPScript.ps1 help``` to display the different commands
+- Execute ```.\EPScript.ps1 X``` where ```x``` is the number of image to grab
+
+  **Please note that the maximum of image is 100**
+
+The script download image in a folder on your Desktop named ```imagesEarthPornReddit``` if you already have a folder with this name the script overwrites the images
+
+## Script Python
+
+The scipt expects at east 1 argument, the subreddit !
+
+Execute ```\EP_Script_v2.py -h``` to display the different commands
+
+The differentes arguments
+
+|Argument|expects|Default value|Example|
+|--------|:-----:|:-----------:|:------|
+|-h --help|nothing|none|-h |
+|-s --sub|subreddit|none|-s EarthPorn|
+|-f --folder|The path destination folder|C:\users\usersname\Documents\Images_SubReddit_test|-f C:\Users\Dronai\Documents\|
+|-n --number|The number of image to download|25|-n 50|
+
+For example you can use ```.\EP_Script_v2.py -s EarthPorn -n 150```
