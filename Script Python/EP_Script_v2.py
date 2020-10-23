@@ -57,7 +57,7 @@ def download(dataRequest, folder):
 
     for images in dataRequest['data']['children']:
 
-        image = images['data']['url_overridden_by_dest']
+        image = images['data']['url']
         titre = image.split('/')
 
         response = requests.get(image)
@@ -81,6 +81,8 @@ def download(dataRequest, folder):
 
 def getDataJson(link, folder, number):
 
+    print("Download images from https://www.reddit.com/r/" + link )
+
     limit = 100
     after = ''
 
@@ -93,16 +95,16 @@ def getDataJson(link, folder, number):
 
         if i == 0 and int(number) > 100:
             print("First request with max limit")
-            url = 'https://www.reddit.com/' + link + '.json?limit=' + str(limit)
+            url = 'https://www.reddit.com/r/' + link + '.json?limit=' + str(limit)
         elif i == 0 and int(number) <= 100:
             print("First request with " + str(number) + " in limit")
-            url = 'https://www.reddit.com/' + link + '.json?limit=' + str(number)
+            url = 'https://www.reddit.com/r/' + link + '.json?limit=' + str(number)
         elif i == iteration-1:
             print("request with limit parameter and after parameter" + after + " " + str(rest))
-            url = 'https://www.reddit.com/' + link + '.json?limit=' + str(rest) + "&after=" + after
+            url = 'https://www.reddit.com/r/' + link + '.json?limit=' + str(rest) + "&after=" + after
         else:
             print("request with after in parameter and max limit " + after + " " + str(limit))
-            url = 'https://www.reddit.com/' + link + '.json?limit=' + str(limit) + "&after=" + after
+            url = 'https://www.reddit.com/r/' + link + '.json?limit=' + str(limit) + "&after=" + after
         
         ## Make the request
         r = requests.get(url, headers = {'User-agent': 'Zbi 1'})
@@ -135,7 +137,7 @@ def main(argv):
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             print('You must call the script with this arguments \".\EP_Script_v2.py -s <sub> -f <folder> -n <number>\"')
-            print ('Example : .\\EP_Script_v2.py r\/EarthPorn D:\\Users\\username\\Documents\\ImageReddit\\ 50')
+            print ('Example : .\\EP_Script_v2.py -s EarthPorn -f D:\\Users\\username\\Documents\\ImageReddit\\ -n 50')
             sys.exit()
         elif opt in ("-s", "--sub"):
             link = arg
